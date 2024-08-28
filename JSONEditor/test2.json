@@ -1,0 +1,36 @@
+{
+  "string": "goodbye world",
+  "number": 1234567890,
+  "stringArray": [
+    "deddead",
+    "daesdsa"
+  ],
+  "numberArray": [
+    34,
+    12,
+    3123,
+    1312
+  ],
+  "objectArray": [
+    {
+      "object": "Object"
+    },
+    {
+      "object": "Object"
+    },
+    {
+      "object": "Object"
+    }
+  ],
+  "everythingArray": [
+    "asdawdwddw",
+    49834934,
+    {
+      "qqqq": "shark reactor"
+    }
+  ],
+  "object": {
+    "anotherString": "qwertyuiop",
+    "someOtherValue": 342423
+  }
+}

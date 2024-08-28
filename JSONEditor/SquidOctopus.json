@@ -1,0 +1,10 @@
+{
+  "squid": "octopus",
+  "arraybecausewhynot": [
+    123,
+    456,
+    {
+      "float": 3.14
+    }
+  ]
+}
