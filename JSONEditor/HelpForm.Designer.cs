@@ -24,13 +24,13 @@
 		/// </summary>
 		private void InitializeComponent() {
 			components = new System.ComponentModel.Container();
-			TreeNode treeNode1 = new TreeNode("About");
-			TreeNode treeNode2 = new TreeNode("How to use");
-			TreeNode treeNode3 = new TreeNode("Changelog");
-			TreeNode treeNode4 = new TreeNode("Object & array formatting");
-			TreeNode treeNode5 = new TreeNode("Style", new TreeNode[] { treeNode4 });
-			TreeNode treeNode6 = new TreeNode("Settings", new TreeNode[] { treeNode5 });
-			TreeNode treeNode7 = new TreeNode("Help", new TreeNode[] { treeNode1, treeNode2, treeNode3, treeNode6 });
+			TreeNode treeNode1 = new TreeNode("How to use");
+			TreeNode treeNode2 = new TreeNode("Changelog");
+			TreeNode treeNode3 = new TreeNode("Object & array formatting");
+			TreeNode treeNode4 = new TreeNode("Style", new TreeNode[] { treeNode3 });
+			TreeNode treeNode5 = new TreeNode("General");
+			TreeNode treeNode6 = new TreeNode("Settings", new TreeNode[] { treeNode4, treeNode5 });
+			TreeNode treeNode7 = new TreeNode("Help", new TreeNode[] { treeNode1, treeNode2, treeNode6 });
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HelpForm));
 			splitContainer1 = new SplitContainer();
 			HelpTree = new TreeView();
@@ -69,30 +69,30 @@
 			HelpTree.Location = new Point(0, 0);
 			HelpTree.Name = "HelpTree";
 			treeNode1.ImageKey = "file_lines-1.png";
-			treeNode1.Name = "About";
+			treeNode1.Name = "HowToUse";
 			treeNode1.SelectedImageKey = "file_lines-1.png";
-			treeNode1.Tag = "About";
-			treeNode1.Text = "About";
+			treeNode1.Tag = "How to use";
+			treeNode1.Text = "How to use";
+			treeNode1.ToolTipText = "How to use";
 			treeNode2.ImageKey = "file_lines-1.png";
-			treeNode2.Name = "HowToUse";
+			treeNode2.Name = "Changelog";
 			treeNode2.SelectedImageKey = "file_lines-1.png";
-			treeNode2.Tag = "How to use";
-			treeNode2.Text = "How to use";
-			treeNode2.ToolTipText = "How to use";
+			treeNode2.Tag = "Changelog";
+			treeNode2.Text = "Changelog";
 			treeNode3.ImageKey = "file_lines-1.png";
-			treeNode3.Name = "Changelog";
+			treeNode3.Name = "Node1";
 			treeNode3.SelectedImageKey = "file_lines-1.png";
-			treeNode3.Tag = "Changelog";
-			treeNode3.Text = "Changelog";
-			treeNode4.ImageKey = "file_lines-1.png";
-			treeNode4.Name = "Node1";
-			treeNode4.SelectedImageKey = "file_lines-1.png";
-			treeNode4.Tag = "Object && array formatting";
-			treeNode4.Text = "Object & array formatting";
-			treeNode5.ImageKey = "directory_closed-1.png";
-			treeNode5.Name = "Style";
-			treeNode5.SelectedImageKey = "directory_closed-1.png";
-			treeNode5.Text = "Style";
+			treeNode3.Tag = "Object && array formatting";
+			treeNode3.Text = "Object & array formatting";
+			treeNode4.ImageKey = "directory_closed-1.png";
+			treeNode4.Name = "Style";
+			treeNode4.SelectedImageKey = "directory_closed-1.png";
+			treeNode4.Text = "Style";
+			treeNode5.ImageKey = "file_lines-1.png";
+			treeNode5.Name = "General";
+			treeNode5.SelectedImageKey = "file_lines-1.png";
+			treeNode5.Tag = "Settings help";
+			treeNode5.Text = "General";
 			treeNode6.ImageKey = "directory_closed-1.png";
 			treeNode6.Name = "Settings";
 			treeNode6.SelectedImageKey = "directory_closed-1.png";
@@ -124,8 +124,10 @@
 			ContentBox.Multiline = true;
 			ContentBox.Name = "ContentBox";
 			ContentBox.ReadOnly = true;
+			ContentBox.ScrollBars = ScrollBars.Both;
 			ContentBox.Size = new Size(524, 405);
 			ContentBox.TabIndex = 1;
+			ContentBox.Text = "Double click on a topic to show its content";
 			// 
 			// TitleLabel
 			// 
@@ -147,6 +149,7 @@
 			Name = "HelpForm";
 			Text = "Javascript Object Tree | Help";
 			FormClosing += HelpForm_FormClosing;
+			Load += HelpForm_Load;
 			Shown += HelpForm_Shown;
 			splitContainer1.Panel1.ResumeLayout(false);
 			splitContainer1.Panel2.ResumeLayout(false);

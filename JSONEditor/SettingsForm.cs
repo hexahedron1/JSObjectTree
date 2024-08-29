@@ -3,18 +3,23 @@
 		public SettingsForm(Form1 p) {
 			InitializeComponent();
 			parent = p;
-			helpForm = new(p);
 		}
-		HelpForm helpForm;
 		Form1 parent;
 		private void SettingsForm_Load(object sender, EventArgs e) {
 			ObjFormatBox.Text = parent.saver.GetValue("objFormat", "{{{0}}}");
 			ArrayFormatBox.Text = parent.saver.GetValue("arrayFormat", "[{0}]");
+			helpProvider.SetShowHelp(ObjFormatBox, true);
+			helpProvider.SetHelpString(ObjFormatBox, @"The formatting for object nodes.
+{0} will be replaced with the amount of properties of the object.
+To use curly braces, put {{ and }}.");
+			helpProvider.SetShowHelp(ArrayFormatBox, true);
+			helpProvider.SetHelpString(ArrayFormatBox, @"The formatting for array nodes.
+{0} will be replaced with the length of the array.
+To use curly braces, put {{ and }}.");
 		}
 
 		private void SettingsForm_HelpButtonClicked(object sender, System.ComponentModel.CancelEventArgs e) {
-			if (!helpForm.Visible)
-				helpForm.Show();
+			
 		}
 
 		private void SettingsForm_FormClosing(object sender, FormClosingEventArgs e) {

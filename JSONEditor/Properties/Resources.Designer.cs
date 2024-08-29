@@ -63,6 +63,36 @@ namespace JSONEditor.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap donute {
+            get {
+                object obj = ResourceManager.GetObject("donute", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap empty {
+            get {
+                object obj = ResourceManager.GetObject("empty", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap help_book_small_5 {
+            get {
+                object obj = ResourceManager.GetObject("help_book_small-5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap msg_error_2 {
             get {
                 object obj = ResourceManager.GetObject("msg_error-2", resourceCulture);
@@ -116,6 +146,16 @@ namespace JSONEditor.Properties {
         internal static System.Drawing.Bitmap ole2_obj {
             get {
                 object obj = ResourceManager.GetObject("ole2-obj", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap QIP_Shot___Screen_29_08_24 {
+            get {
+                object obj = ResourceManager.GetObject("QIP Shot - Screen 29.08.24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

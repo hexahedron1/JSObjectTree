@@ -35,11 +35,7 @@ namespace JSONEditor {
 		}
 
 		private void HelpForm_Shown(object sender, EventArgs e) {
-			
 			help = new() {
-			{ "About", @$"This program is designed for editing JSON files in a tree format.
-Made by hexahedron1 with C# using .NET 8.0
-Version {parent.version}" },
 			{ "How to use", @"To open a file, click on the File menu, then choose Open.
 If you want to create a new file, choose the New option in the same menu.
 
@@ -64,8 +60,19 @@ This will be formatted as [4]." },
 			{ "Settings", @"Using the settings window you can change the program's parameters for your own liking.
 Settings are automatically saved and will be applied the next time the program gets started." },
 			{ "Changelog", $@"Version: {parent.version}
-- Initial release" }
-				};
+- Added Help menu
+- Added About window
+- Added help messages for individual settings
+- Added scroll bar to help window
+
+- Moved help window to the Help menu
+- Changed array icon" },
+			{ "Settings help", @"You can view help about each setting by clicking on the help button in the settings menu and clicking on the desired setting." }
+			};
+		}
+
+		private void HelpForm_Load(object sender, EventArgs e) {
+
 		}
 	}
 }

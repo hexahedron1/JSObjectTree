@@ -26,12 +26,13 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
 			tabControl1 = new TabControl();
 			StylePage = new TabPage();
+			label3 = new Label();
 			ObjArrayStyleGroupBox = new GroupBox();
 			label2 = new Label();
 			ArrayFormatBox = new TextBox();
 			ObjFormatBox = new TextBox();
 			label1 = new Label();
-			label3 = new Label();
+			helpProvider = new HelpProvider();
 			tabControl1.SuspendLayout();
 			StylePage.SuspendLayout();
 			ObjArrayStyleGroupBox.SuspendLayout();
@@ -58,6 +59,16 @@
 			StylePage.TabIndex = 0;
 			StylePage.Text = "Style";
 			StylePage.UseVisualStyleBackColor = true;
+			// 
+			// label3
+			// 
+			label3.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+			label3.AutoSize = true;
+			label3.Location = new Point(6, 83);
+			label3.Name = "label3";
+			label3.Size = new Size(211, 15);
+			label3.TabIndex = 1;
+			label3.Text = "Settings will be applied on next startup";
 			// 
 			// ObjArrayStyleGroupBox
 			// 
@@ -112,16 +123,6 @@
 			label1.TabIndex = 0;
 			label1.Text = "Object formatting:";
 			// 
-			// label3
-			// 
-			label3.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-			label3.AutoSize = true;
-			label3.Location = new Point(6, 83);
-			label3.Name = "label3";
-			label3.Size = new Size(211, 15);
-			label3.TabIndex = 1;
-			label3.Text = "Settings will be applied on next startup";
-			// 
 			// SettingsForm
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
@@ -134,7 +135,6 @@
 			MinimizeBox = false;
 			Name = "SettingsForm";
 			Text = "Javascript Object Tree | Settings";
-			HelpButtonClicked += SettingsForm_HelpButtonClicked;
 			FormClosing += SettingsForm_FormClosing;
 			Load += SettingsForm_Load;
 			tabControl1.ResumeLayout(false);
@@ -155,5 +155,6 @@
 		private Label label1;
 		private Label label2;
 		private Label label3;
+		private HelpProvider helpProvider;
 	}
 }

@@ -37,9 +37,10 @@
 			EditDropdownButton = new ToolStripDropDownButton();
 			CopyEditMenuItem = new ToolStripMenuItem();
 			PasteEditMenuItem = new ToolStripMenuItem();
-			PrefEditMenuItem = new ToolStripMenuItem();
+			SettingsViewMenuItem = new ToolStripMenuItem();
 			ViewDropdownButton = new ToolStripDropDownButton();
-			PropViewMenuItem = new ToolStripMenuItem();
+			AboutHelpMenuItem = new ToolStripMenuItem();
+			HelpMenuItem = new ToolStripMenuItem();
 			toolStripSeparator1 = new ToolStripSeparator();
 			AddNodeButton = new ToolStripSplitButton();
 			AddValueMenuItem = new ToolStripMenuItem();
@@ -144,7 +145,7 @@
 			// EditDropdownButton
 			// 
 			EditDropdownButton.DisplayStyle = ToolStripItemDisplayStyle.Text;
-			EditDropdownButton.DropDownItems.AddRange(new ToolStripItem[] { CopyEditMenuItem, PasteEditMenuItem, PrefEditMenuItem });
+			EditDropdownButton.DropDownItems.AddRange(new ToolStripItem[] { CopyEditMenuItem, PasteEditMenuItem, SettingsViewMenuItem });
 			EditDropdownButton.Image = (Image)resources.GetObject("EditDropdownButton.Image");
 			EditDropdownButton.ImageTransparentColor = Color.Magenta;
 			EditDropdownButton.Name = "EditDropdownButton";
@@ -153,7 +154,6 @@
 			// 
 			// CopyEditMenuItem
 			// 
-			CopyEditMenuItem.Enabled = false;
 			CopyEditMenuItem.Name = "CopyEditMenuItem";
 			CopyEditMenuItem.ShortcutKeyDisplayString = "Ctrl+C";
 			CopyEditMenuItem.Size = new Size(144, 22);
@@ -161,40 +161,42 @@
 			// 
 			// PasteEditMenuItem
 			// 
-			PasteEditMenuItem.Enabled = false;
 			PasteEditMenuItem.Name = "PasteEditMenuItem";
 			PasteEditMenuItem.ShortcutKeyDisplayString = "Ctrl+V";
 			PasteEditMenuItem.Size = new Size(144, 22);
 			PasteEditMenuItem.Text = "Paste";
 			// 
-			// PrefEditMenuItem
+			// SettingsViewMenuItem
 			// 
-			PrefEditMenuItem.Image = Properties.Resources.settings_gear_5;
-			PrefEditMenuItem.Name = "PrefEditMenuItem";
-			PrefEditMenuItem.Size = new Size(144, 22);
-			PrefEditMenuItem.Text = "Preferences";
-			PrefEditMenuItem.Click += PrefEditMenuItem_Click;
+			SettingsViewMenuItem.Image = Properties.Resources.settings_gear_5;
+			SettingsViewMenuItem.Name = "SettingsViewMenuItem";
+			SettingsViewMenuItem.Size = new Size(144, 22);
+			SettingsViewMenuItem.Text = "Settings";
 			// 
 			// ViewDropdownButton
 			// 
 			ViewDropdownButton.DisplayStyle = ToolStripItemDisplayStyle.Text;
-			ViewDropdownButton.DropDownItems.AddRange(new ToolStripItem[] { PropViewMenuItem });
-			ViewDropdownButton.Enabled = false;
+			ViewDropdownButton.DropDownItems.AddRange(new ToolStripItem[] { AboutHelpMenuItem, HelpMenuItem });
 			ViewDropdownButton.Image = (Image)resources.GetObject("ViewDropdownButton.Image");
 			ViewDropdownButton.ImageTransparentColor = Color.Magenta;
 			ViewDropdownButton.Name = "ViewDropdownButton";
 			ViewDropdownButton.Size = new Size(45, 22);
-			ViewDropdownButton.Text = "View";
-			ViewDropdownButton.Visible = false;
+			ViewDropdownButton.Text = "Help";
 			// 
-			// PropViewMenuItem
+			// AboutHelpMenuItem
 			// 
-			PropViewMenuItem.Checked = true;
-			PropViewMenuItem.CheckState = CheckState.Checked;
-			PropViewMenuItem.Name = "PropViewMenuItem";
-			PropViewMenuItem.Size = new Size(104, 22);
-			PropViewMenuItem.Text = "Errors";
-			PropViewMenuItem.Click += PropViewMenuItem_Click;
+			AboutHelpMenuItem.Name = "AboutHelpMenuItem";
+			AboutHelpMenuItem.Size = new Size(180, 22);
+			AboutHelpMenuItem.Text = "About";
+			AboutHelpMenuItem.Click += AboutHelpMenuItem_Click;
+			// 
+			// HelpMenuItem
+			// 
+			HelpMenuItem.Image = Properties.Resources.help_book_small_5;
+			HelpMenuItem.Name = "HelpMenuItem";
+			HelpMenuItem.Size = new Size(180, 22);
+			HelpMenuItem.Text = "Help";
+			HelpMenuItem.Click += HelpViewMenuItem_Click;
 			// 
 			// toolStripSeparator1
 			// 
@@ -392,12 +394,10 @@
 		private ToolStripMenuItem SaveAsFileMenuItem;
 		private ToolStripMenuItem CopyEditMenuItem;
 		private ToolStripMenuItem PasteEditMenuItem;
-		private ToolStripMenuItem PrefEditMenuItem;
 		private ToolStripDropDownButton ViewDropdownButton;
 		private SplitContainer MainSplitContainer;
 		private TreeView Tree;
 		private ImageList TreeImageList;
-		private ToolStripMenuItem PropViewMenuItem;
 		private ToolStripSeparator toolStripSeparator1;
 		private ToolStripSplitButton AddNodeButton;
 		private ToolStripMenuItem AddValueMenuItem;
@@ -411,5 +411,8 @@
 		private ToolStripMenuItem AddObjectMenuItem;
 		private ToolStripMenuItem AddArrayMenuItem;
 		private SaveFileDialog saveFileDialog;
+		private ToolStripMenuItem HelpMenuItem;
+		private ToolStripMenuItem SettingsViewMenuItem;
+		private ToolStripMenuItem AboutHelpMenuItem;
 	}
 }
