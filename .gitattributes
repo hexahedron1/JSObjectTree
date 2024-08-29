@@ -41,7 +41,7 @@
 # image files are treated as binary by default.
 ###############################################################################
 #*.jpg   binary
-#*.png   binary
+*.png   binary
 #*.gif   binary
 
 ###############################################################################
@@ -61,5 +61,4 @@
 #*.PDF   diff=astextplain
 #*.rtf   diff=astextplain
 #*.RTF   diff=astextplain
-* linguist-vendored
-*.cs linguist-vendored=false
+*.cs linguist-language=C#
