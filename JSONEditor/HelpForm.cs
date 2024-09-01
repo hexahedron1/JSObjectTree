@@ -60,13 +60,8 @@ This will be formatted as [4]." },
 			{ "Settings", @"Using the settings window you can change the program's parameters for your own liking.
 Settings are automatically saved and will be applied the next time the program gets started." },
 			{ "Changelog", $@"Version: {parent.version}
-- Added Help menu
-- Added About window
-- Added help messages for individual settings
-- Added scroll bar to help window
-
-- Moved help window to the Help menu
-- Changed array icon" },
+- Added node info in status bar
+- Added github link in About box" },
 			{ "Settings help", @"You can view help about each setting by clicking on the help button in the settings menu and clicking on the desired setting." }
 			};
 		}

@@ -27,11 +27,14 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			statusStrip1 = new StatusStrip();
 			Progressbar = new ToolStripProgressBar();
-			StatusLabel = new ToolStripStatusLabel();
+			NodeNameLabel = new ToolStripStatusLabel();
+			NodeChildrenLabel = new ToolStripStatusLabel();
+			NodeTotalChildrenLabel = new ToolStripStatusLabel();
 			toolStrip1 = new ToolStrip();
 			FileDropdownButton = new ToolStripDropDownButton();
 			NewFileMenuItem = new ToolStripMenuItem();
 			OpenFileMenuItem = new ToolStripMenuItem();
+			LoadFromClipboardFileMenuItem = new ToolStripMenuItem();
 			SaveFileMenuItem = new ToolStripMenuItem();
 			SaveAsFileMenuItem = new ToolStripMenuItem();
 			EditDropdownButton = new ToolStripDropDownButton();
@@ -68,7 +71,7 @@
 			// 
 			// statusStrip1
 			// 
-			statusStrip1.Items.AddRange(new ToolStripItem[] { Progressbar, StatusLabel });
+			statusStrip1.Items.AddRange(new ToolStripItem[] { Progressbar, NodeNameLabel, NodeChildrenLabel, NodeTotalChildrenLabel });
 			statusStrip1.Location = new Point(0, 428);
 			statusStrip1.Name = "statusStrip1";
 			statusStrip1.Size = new Size(800, 22);
@@ -81,12 +84,26 @@
 			Progressbar.Size = new Size(100, 16);
 			Progressbar.Visible = false;
 			// 
-			// StatusLabel
+			// NodeNameLabel
 			// 
-			StatusLabel.Name = "StatusLabel";
-			StatusLabel.Size = new Size(67, 17);
-			StatusLabel.Text = "StatusLabel";
-			StatusLabel.Visible = false;
+			NodeNameLabel.Name = "NodeNameLabel";
+			NodeNameLabel.Size = new Size(69, 17);
+			NodeNameLabel.Text = "Node name";
+			NodeNameLabel.Visible = false;
+			// 
+			// NodeChildrenLabel
+			// 
+			NodeChildrenLabel.Name = "NodeChildrenLabel";
+			NodeChildrenLabel.Size = new Size(82, 17);
+			NodeChildrenLabel.Text = "Node children";
+			NodeChildrenLabel.Visible = false;
+			// 
+			// NodeTotalChildrenLabel
+			// 
+			NodeTotalChildrenLabel.Name = "NodeTotalChildrenLabel";
+			NodeTotalChildrenLabel.Size = new Size(109, 17);
+			NodeTotalChildrenLabel.Text = "Node total children";
+			NodeTotalChildrenLabel.Visible = false;
 			// 
 			// toolStrip1
 			// 
@@ -100,7 +117,7 @@
 			// FileDropdownButton
 			// 
 			FileDropdownButton.DisplayStyle = ToolStripItemDisplayStyle.Text;
-			FileDropdownButton.DropDownItems.AddRange(new ToolStripItem[] { NewFileMenuItem, OpenFileMenuItem, SaveFileMenuItem, SaveAsFileMenuItem });
+			FileDropdownButton.DropDownItems.AddRange(new ToolStripItem[] { NewFileMenuItem, OpenFileMenuItem, LoadFromClipboardFileMenuItem, SaveFileMenuItem, SaveAsFileMenuItem });
 			FileDropdownButton.Image = (Image)resources.GetObject("FileDropdownButton.Image");
 			FileDropdownButton.ImageTransparentColor = Color.Magenta;
 			FileDropdownButton.Name = "FileDropdownButton";
@@ -112,24 +129,32 @@
 			NewFileMenuItem.Image = Properties.Resources.template_empty_1;
 			NewFileMenuItem.Name = "NewFileMenuItem";
 			NewFileMenuItem.ShortcutKeyDisplayString = "Ctrl+N";
-			NewFileMenuItem.Size = new Size(193, 22);
-			NewFileMenuItem.Text = "New...";
+			NewFileMenuItem.Size = new Size(255, 22);
+			NewFileMenuItem.Text = "New";
 			NewFileMenuItem.Click += NewFileMenuItem_Click;
 			// 
 			// OpenFileMenuItem
 			// 
 			OpenFileMenuItem.Name = "OpenFileMenuItem";
 			OpenFileMenuItem.ShortcutKeyDisplayString = "Ctrl+O";
-			OpenFileMenuItem.Size = new Size(193, 22);
+			OpenFileMenuItem.Size = new Size(255, 22);
 			OpenFileMenuItem.Text = "Open...";
 			OpenFileMenuItem.Click += OpenFileMenuItem_Click;
+			// 
+			// LoadFromClipboardFileMenuItem
+			// 
+			LoadFromClipboardFileMenuItem.Name = "LoadFromClipboardFileMenuItem";
+			LoadFromClipboardFileMenuItem.ShortcutKeyDisplayString = "Ctrl+Shift+V";
+			LoadFromClipboardFileMenuItem.Size = new Size(255, 22);
+			LoadFromClipboardFileMenuItem.Text = "Load from clipboard";
+			LoadFromClipboardFileMenuItem.Click += LoadFromClipboardFileMenuItem_Click;
 			// 
 			// SaveFileMenuItem
 			// 
 			SaveFileMenuItem.Enabled = false;
 			SaveFileMenuItem.Name = "SaveFileMenuItem";
 			SaveFileMenuItem.ShortcutKeyDisplayString = "Ctrl+S";
-			SaveFileMenuItem.Size = new Size(193, 22);
+			SaveFileMenuItem.Size = new Size(255, 22);
 			SaveFileMenuItem.Text = "Save";
 			SaveFileMenuItem.Click += SaveFileMenuItem_Click;
 			// 
@@ -138,7 +163,7 @@
 			SaveAsFileMenuItem.Enabled = false;
 			SaveAsFileMenuItem.Name = "SaveAsFileMenuItem";
 			SaveAsFileMenuItem.ShortcutKeyDisplayString = "Ctrl+Shift+S";
-			SaveAsFileMenuItem.Size = new Size(193, 22);
+			SaveAsFileMenuItem.Size = new Size(255, 22);
 			SaveAsFileMenuItem.Text = "Save as...";
 			SaveAsFileMenuItem.Click += SaveAsFileMenuItem_Click;
 			// 
@@ -154,17 +179,21 @@
 			// 
 			// CopyEditMenuItem
 			// 
+			CopyEditMenuItem.Enabled = false;
 			CopyEditMenuItem.Name = "CopyEditMenuItem";
 			CopyEditMenuItem.ShortcutKeyDisplayString = "Ctrl+C";
 			CopyEditMenuItem.Size = new Size(144, 22);
 			CopyEditMenuItem.Text = "Copy";
+			CopyEditMenuItem.Click += CopyEditMenuItem_Click;
 			// 
 			// PasteEditMenuItem
 			// 
+			PasteEditMenuItem.Enabled = false;
 			PasteEditMenuItem.Name = "PasteEditMenuItem";
 			PasteEditMenuItem.ShortcutKeyDisplayString = "Ctrl+V";
 			PasteEditMenuItem.Size = new Size(144, 22);
 			PasteEditMenuItem.Text = "Paste";
+			PasteEditMenuItem.Click += PasteEditMenuItem_Click;
 			// 
 			// SettingsViewMenuItem
 			// 
@@ -172,6 +201,7 @@
 			SettingsViewMenuItem.Name = "SettingsViewMenuItem";
 			SettingsViewMenuItem.Size = new Size(144, 22);
 			SettingsViewMenuItem.Text = "Settings";
+			SettingsViewMenuItem.Click += SettingsViewMenuItem_Click;
 			// 
 			// ViewDropdownButton
 			// 
@@ -186,7 +216,7 @@
 			// AboutHelpMenuItem
 			// 
 			AboutHelpMenuItem.Name = "AboutHelpMenuItem";
-			AboutHelpMenuItem.Size = new Size(180, 22);
+			AboutHelpMenuItem.Size = new Size(107, 22);
 			AboutHelpMenuItem.Text = "About";
 			AboutHelpMenuItem.Click += AboutHelpMenuItem_Click;
 			// 
@@ -194,7 +224,7 @@
 			// 
 			HelpMenuItem.Image = Properties.Resources.help_book_small_5;
 			HelpMenuItem.Name = "HelpMenuItem";
-			HelpMenuItem.Size = new Size(180, 22);
+			HelpMenuItem.Size = new Size(107, 22);
 			HelpMenuItem.Text = "Help";
 			HelpMenuItem.Click += HelpViewMenuItem_Click;
 			// 
@@ -384,7 +414,7 @@
 
 		private StatusStrip statusStrip1;
 		private ToolStripProgressBar Progressbar;
-		private ToolStripStatusLabel StatusLabel;
+		private ToolStripStatusLabel NodeNameLabel;
 		private ToolStrip toolStrip1;
 		private ToolStripDropDownButton EditDropdownButton;
 		private ToolStripDropDownButton FileDropdownButton;
@@ -414,5 +444,8 @@
 		private ToolStripMenuItem HelpMenuItem;
 		private ToolStripMenuItem SettingsViewMenuItem;
 		private ToolStripMenuItem AboutHelpMenuItem;
+		private ToolStripMenuItem LoadFromClipboardFileMenuItem;
+		private ToolStripStatusLabel NodeChildrenLabel;
+		private ToolStripStatusLabel NodeTotalChildrenLabel;
 	}
 }

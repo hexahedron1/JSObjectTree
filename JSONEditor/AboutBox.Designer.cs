@@ -28,9 +28,12 @@
 			labelVersion = new Label();
 			labelCompanyName = new Label();
 			textBoxDescription = new TextBox();
+			panel1 = new Panel();
+			GithubLink = new LinkLabel();
 			okButton = new Button();
 			tableLayoutPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)logoPictureBox).BeginInit();
+			panel1.SuspendLayout();
 			SuspendLayout();
 			// 
 			// tableLayoutPanel
@@ -43,7 +46,7 @@
 			tableLayoutPanel.Controls.Add(labelVersion, 1, 1);
 			tableLayoutPanel.Controls.Add(labelCompanyName, 1, 2);
 			tableLayoutPanel.Controls.Add(textBoxDescription, 1, 3);
-			tableLayoutPanel.Controls.Add(okButton, 1, 4);
+			tableLayoutPanel.Controls.Add(panel1, 1, 4);
 			tableLayoutPanel.Dock = DockStyle.Fill;
 			tableLayoutPanel.Location = new Point(10, 10);
 			tableLayoutPanel.Margin = new Padding(4, 3, 4, 3);
@@ -105,7 +108,7 @@
 			labelCompanyName.Name = "labelCompanyName";
 			labelCompanyName.Size = new Size(318, 20);
 			labelCompanyName.TabIndex = 22;
-			labelCompanyName.Text = "hexahedron1";
+			labelCompanyName.Text = "By hexahedron1";
 			labelCompanyName.TextAlign = ContentAlignment.MiddleLeft;
 			// 
 			// textBoxDescription
@@ -122,20 +125,40 @@
 			textBoxDescription.TabStop = false;
 			textBoxDescription.Text = "A program designed for viewing and editing JSON files in a tree format\r\nMade with .NET 8 using C#";
 			// 
+			// panel1
+			// 
+			panel1.Controls.Add(GithubLink);
+			panel1.Controls.Add(okButton);
+			panel1.Dock = DockStyle.Fill;
+			panel1.Location = new Point(161, 275);
+			panel1.Name = "panel1";
+			panel1.Size = new Size(323, 29);
+			panel1.TabIndex = 24;
+			// 
+			// GithubLink
+			// 
+			GithubLink.AutoSize = true;
+			GithubLink.Location = new Point(4, 7);
+			GithubLink.Name = "GithubLink";
+			GithubLink.Size = new Size(43, 15);
+			GithubLink.TabIndex = 26;
+			GithubLink.TabStop = true;
+			GithubLink.Text = "Github";
+			GithubLink.LinkClicked += GithubLink_LinkClicked;
+			// 
 			// okButton
 			// 
 			okButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
 			okButton.DialogResult = DialogResult.Cancel;
-			okButton.Location = new Point(395, 277);
+			okButton.Location = new Point(238, 3);
 			okButton.Margin = new Padding(4, 3, 4, 3);
 			okButton.Name = "okButton";
-			okButton.Size = new Size(88, 27);
-			okButton.TabIndex = 24;
+			okButton.Size = new Size(81, 23);
+			okButton.TabIndex = 25;
 			okButton.Text = "&OK";
 			// 
 			// AboutBox
 			// 
-			AcceptButton = okButton;
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(507, 327);
@@ -154,6 +177,8 @@
 			tableLayoutPanel.ResumeLayout(false);
 			tableLayoutPanel.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)logoPictureBox).EndInit();
+			panel1.ResumeLayout(false);
+			panel1.PerformLayout();
 			ResumeLayout(false);
 		}
 
@@ -165,6 +190,8 @@
 		private System.Windows.Forms.Label labelVersion;
 		private System.Windows.Forms.Label labelCompanyName;
 		private System.Windows.Forms.TextBox textBoxDescription;
-		private System.Windows.Forms.Button okButton;
+		private Panel panel1;
+		private LinkLabel GithubLink;
+		private Button okButton;
 	}
 }
