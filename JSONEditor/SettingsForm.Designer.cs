@@ -26,49 +26,41 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
 			tabControl1 = new TabControl();
 			StylePage = new TabPage();
-			label3 = new Label();
 			ObjArrayStyleGroupBox = new GroupBox();
 			label2 = new Label();
 			ArrayFormatBox = new TextBox();
 			ObjFormatBox = new TextBox();
 			label1 = new Label();
+			MiscPage = new TabPage();
+			CountTotalSubnodesCheck = new CheckBox();
 			helpProvider = new HelpProvider();
 			tabControl1.SuspendLayout();
 			StylePage.SuspendLayout();
 			ObjArrayStyleGroupBox.SuspendLayout();
+			MiscPage.SuspendLayout();
 			SuspendLayout();
 			// 
 			// tabControl1
 			// 
 			tabControl1.Controls.Add(StylePage);
+			tabControl1.Controls.Add(MiscPage);
 			tabControl1.Dock = DockStyle.Fill;
 			tabControl1.Location = new Point(0, 0);
 			tabControl1.Name = "tabControl1";
 			tabControl1.SelectedIndex = 0;
-			tabControl1.Size = new Size(412, 131);
+			tabControl1.Size = new Size(412, 118);
 			tabControl1.TabIndex = 0;
 			// 
 			// StylePage
 			// 
-			StylePage.Controls.Add(label3);
 			StylePage.Controls.Add(ObjArrayStyleGroupBox);
 			StylePage.Location = new Point(4, 24);
 			StylePage.Name = "StylePage";
 			StylePage.Padding = new Padding(3);
-			StylePage.Size = new Size(404, 103);
+			StylePage.Size = new Size(404, 90);
 			StylePage.TabIndex = 0;
 			StylePage.Text = "Style";
 			StylePage.UseVisualStyleBackColor = true;
-			// 
-			// label3
-			// 
-			label3.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-			label3.AutoSize = true;
-			label3.Location = new Point(6, 83);
-			label3.Name = "label3";
-			label3.Size = new Size(211, 15);
-			label3.TabIndex = 1;
-			label3.Text = "Settings will be applied on next startup";
 			// 
 			// ObjArrayStyleGroupBox
 			// 
@@ -123,11 +115,32 @@
 			label1.TabIndex = 0;
 			label1.Text = "Object formatting:";
 			// 
+			// MiscPage
+			// 
+			MiscPage.Controls.Add(CountTotalSubnodesCheck);
+			MiscPage.Location = new Point(4, 24);
+			MiscPage.Name = "MiscPage";
+			MiscPage.Size = new Size(404, 103);
+			MiscPage.TabIndex = 1;
+			MiscPage.Text = "Misc";
+			MiscPage.UseVisualStyleBackColor = true;
+			// 
+			// CountTotalSubnodesCheck
+			// 
+			CountTotalSubnodesCheck.AutoSize = true;
+			CountTotalSubnodesCheck.Location = new Point(8, 3);
+			CountTotalSubnodesCheck.Name = "CountTotalSubnodesCheck";
+			CountTotalSubnodesCheck.Size = new Size(239, 19);
+			CountTotalSubnodesCheck.TabIndex = 0;
+			CountTotalSubnodesCheck.Text = "Count total subnodes for selected nodes";
+			CountTotalSubnodesCheck.UseVisualStyleBackColor = true;
+			CountTotalSubnodesCheck.CheckedChanged += CountTotalSubnodesCheck_CheckedChanged;
+			// 
 			// SettingsForm
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(412, 131);
+			ClientSize = new Size(412, 118);
 			Controls.Add(tabControl1);
 			HelpButton = true;
 			Icon = (Icon)resources.GetObject("$this.Icon");
@@ -139,9 +152,10 @@
 			Load += SettingsForm_Load;
 			tabControl1.ResumeLayout(false);
 			StylePage.ResumeLayout(false);
-			StylePage.PerformLayout();
 			ObjArrayStyleGroupBox.ResumeLayout(false);
 			ObjArrayStyleGroupBox.PerformLayout();
+			MiscPage.ResumeLayout(false);
+			MiscPage.PerformLayout();
 			ResumeLayout(false);
 		}
 
@@ -154,7 +168,8 @@
 		private TextBox ObjFormatBox;
 		private Label label1;
 		private Label label2;
-		private Label label3;
 		private HelpProvider helpProvider;
+		private TabPage MiscPage;
+		private CheckBox CountTotalSubnodesCheck;
 	}
 }

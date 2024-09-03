@@ -16,10 +16,13 @@ To use curly braces, put {{ and }}.");
 			helpProvider.SetHelpString(ArrayFormatBox, @"The formatting for array nodes.
 {0} will be replaced with the length of the array.
 To use curly braces, put {{ and }}.");
+			helpProvider.SetShowHelp(CountTotalSubnodesCheck, true);
+			helpProvider.SetHelpString(CountTotalSubnodesCheck, @"Whether when you select a node the program will count all nodes under it.
+This may theoretically cause performance issues although not tested.");
 		}
 
 		private void SettingsForm_HelpButtonClicked(object sender, System.ComponentModel.CancelEventArgs e) {
-			
+
 		}
 
 		private void SettingsForm_FormClosing(object sender, FormClosingEventArgs e) {
@@ -33,6 +36,10 @@ To use curly braces, put {{ and }}.");
 
 		private void ArrayFormatBox_TextChanged(object sender, EventArgs e) {
 			parent.saver.SetValue("arrayFormat", ArrayFormatBox.Text);
+		}
+
+		private void CountTotalSubnodesCheck_CheckedChanged(object sender, EventArgs e) {
+			parent.saver.SetValue("countTotalSubnodes", CountTotalSubnodesCheck.Checked);
 		}
 	}
 }

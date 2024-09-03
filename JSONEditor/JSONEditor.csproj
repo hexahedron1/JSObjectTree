@@ -6,8 +6,8 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <AssemblyVersion>1.2.0.24245</AssemblyVersion>
-    <FileVersion>1.2.0.24245</FileVersion>
+    <AssemblyVersion>1.2.5.24247</AssemblyVersion>
+    <FileVersion>1.2.5.24247</FileVersion>
 	 <GenerateResourceWarnOnBinaryFormatterUse>false</GenerateResourceWarnOnBinaryFormatterUse>
 	 <ApplicationIcon>expand_hierarchial_array.ico</ApplicationIcon>
 	 <AssemblyName>JSObjectTree</AssemblyName>
